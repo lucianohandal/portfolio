@@ -1,0 +1,39 @@
+/*colors: eeeeee 32e0c4 393e46 222831*/
+.body {
+}
+
+h1, h2, h3, h4, h5, h6, p{
+    color: #eeeeee;
+}
+
+#hello {
+    height: 100vh;
+    background: #222831;
+}
+
+#hello h1 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 5rem;
+}
+
+#home {
+    height: 100vh;
+    background: #393e46;
+}
+
+#about {
+    height: 100vh;
+    background: #222831;
+}
+#projects {
+    height: 100vh;
+    background: #393e46;
+}
+#photography {
+    height: 100vh;
+    background: #222831;
+}
+#contact {
+    height: 100vh;
+    background: #393e46;
+}
