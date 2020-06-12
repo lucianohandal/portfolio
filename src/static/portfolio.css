@@ -1,14 +1,28 @@
 /*colors: eeeeee 32e0c4 393e46 222831*/
-.body {
+/* .body {
+  font-family: 'Montserrat', sans-serif;
+} */
+
+h1, h2, h3, h4, h5, h6, p, small, label, button{
+  font-family: 'Montserrat', sans-serif;
+  color: #eeeeee;
 }
 
-h1, h2, h3, h4, h5, h6, p{
-    color: #eeeeee;
+#navbar {
+  display: none;
 }
 
-#hello {
-    height: 100vh;
-    background: #222831;
+.section {
+  min-height: 100vh;
+  padding-top: 4.5rem;
+}
+
+.section:nth-of-type(odd) {
+  background:  #222831;
+}
+
+.section:nth-of-type(even) {
+  background:  #393e46;
 }
 
 #hello h1 {
@@ -16,24 +30,58 @@ h1, h2, h3, h4, h5, h6, p{
     font-size: 5rem;
 }
 
-#home {
-    height: 100vh;
-    background: #393e46;
+#type_pos {
+  animation-duration: 400ms;
+  animation-name: blink;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
-#about {
-    height: 100vh;
-    background: #222831;
+@keyframes blink {
+  from {
+     opacity: 1;
+  }
+  to {
+     opacity: 0;
+  }
 }
-#projects {
-    height: 100vh;
-    background: #393e46;
+
+#new_line {
+  color: #32e0c4;
 }
-#photography {
-    height: 100vh;
-    background: #222831;
+
+#home h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 5rem;
 }
-#contact {
-    height: 100vh;
-    background: #393e46;
+
+#home h1 span {
+  font-weight: bold;
+}
+
+#exp_edu_row, #skills_row{
+  width: 100%;
+}
+
+#contact input{
+  border: 0;
+  background-color: rgba(238, 238, 238, 0.2);
+}
+
+#contact textarea{
+  border: 0;
+  background-color: rgba(238, 238, 238, 0.2);
+}
+
+.close{
+  color: white;
+}
+
+.modal-footer button {
+  width: 30%;
+}
+
+#dismiss_btn{
+  display: none;
+  width: 80%;
 }
