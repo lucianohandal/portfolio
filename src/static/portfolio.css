@@ -22,17 +22,22 @@ h1 {
 }
 
 .section:nth-of-type(odd) {
-  background:  #222831;
+  background:  #393e46;
 }
 
 .section:nth-of-type(even) {
-  background:  #393e46;
+  background:  #222831;
 }
 
 #hello h1 {
     margin-top: 15%;
+    color: #eeeeee;
     font-family: 'Roboto Mono', monospace;
     font-size: 5rem;
+}
+
+#new_line {
+  color: #32e0c4;
 }
 
 #hello_arrow {
@@ -52,10 +57,6 @@ h1 {
   }
 }
 
-#new_line {
-  color: #32e0c4;
-}
-
 #home h1 {
   font-size: 5rem;
   color: #eeeeee;
@@ -72,6 +73,26 @@ h1 {
 
 .row {
   padding: 15px 45px;
+}
+
+.carousel {
+  min-height: 80vh;
+}
+
+.carousel_btn{
+  height: 100%;
+  width: 100%;
+  font-size: 2rem;
+  color: rgba(238, 238, 238, 0.5);
+}
+.carousel_btn:focus,
+.carousel_btn:hover{
+  background-color: rgba(238, 238, 238, 0.3);
+  color: rgba(0, 0, 0, 0.3);
+}
+
+#projects .project{
+  height: 100%;
 }
 
 #contact input{

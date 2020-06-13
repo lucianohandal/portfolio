@@ -115,40 +115,99 @@
       </div>
     </div>
   </div>
-  <div id="projects" class="section"></div>
+  <div id="projects" class="section">
+    <div class="row">
+      <h1>Projects</h1>
+    </div>
+    <div class="row carousel p-0 m-0 pb-5">
+      <div class="col-1 p-0">
+        <button type="button" class="carousel_btn btn btn-outline-light border-0" onclick="projectSlide(true)"><i class="fas fa-chevron-left"></i></button>
+      </div>
+      <div class="col p-0">
+        <div id="easya" class="project card mb-3">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+        <div id="epics" class="project card mb-3">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+        <div id="gitprojects" class="project d-flex justify-content-around align-content-around flex-wrap">
+          <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-1 p-0">
+        <button type="button" class="carousel_btn btn btn-outline-light border-0" onclick="projectSlide(false)"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
   <div id="photography" class="section">
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <img src="{{ url_for('static', filename='photography/halongbay.jpeg') }}" class="d-block w-100" alt="Ha Long Bay">
-        </div>
-        <div class="col">
-          <img src="{{ url_for('static', filename='photography/zebra.jpeg') }}" class="d-block w-100" alt="Zebra">
-        </div>
+    <div class="row">
+      <h1>Photography</h1>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <img src="{{ url_for('static', filename='photography/halongbay.jpeg') }}" class="d-block w-100" alt="Ha Long Bay">
       </div>
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <img src="{{ url_for('static', filename='photography/greatwall.jpeg') }}" class="d-block w-100" alt="Great Wall of China">
-        </div>
-        <div class="col">
-          <img src="{{ url_for('static', filename='photography/kinkakuji.jpeg') }}" class="d-block w-100" alt="Kinkaku-Ji">
-        </div>
+      <div class="col">
+        <img src="{{ url_for('static', filename='photography/zebra.jpeg') }}" class="d-block w-100" alt="Zebra">
       </div>
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <img src="{{ url_for('static', filename='photography/bagan.jpeg') }}" class="d-block w-100" alt="Bagan">
-        </div>
-        <div class="col">
-          <img src="{{ url_for('static', filename='photography/tajmahal.jpeg') }}" class="d-block w-100" alt="Taj Mahal">
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <img src="{{ url_for('static', filename='photography/greatwall.jpeg') }}" class="d-block w-100" alt="Great Wall of China">
       </div>
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <img src="{{ url_for('static', filename='photography/elephant.jpeg') }}" class="d-block w-100" alt="Elephant">
-        </div>
-        <div class="col">
-          <img src="{{ url_for('static', filename='photography/lion.jpeg') }}" class="d-block w-100" alt="Lion">
-        </div>
+      <div class="col">
+        <img src="{{ url_for('static', filename='photography/kinkakuji.jpeg') }}" class="d-block w-100" alt="Kinkaku-Ji">
       </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <img src="{{ url_for('static', filename='photography/bagan.jpeg') }}" class="d-block w-100" alt="Bagan">
+      </div>
+      <div class="col">
+        <img src="{{ url_for('static', filename='photography/tajmahal.jpeg') }}" class="d-block w-100" alt="Taj Mahal">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <img src="{{ url_for('static', filename='photography/elephant.jpeg') }}" class="d-block w-100" alt="Elephant">
+      </div>
+      <div class="col">
+        <img src="{{ url_for('static', filename='photography/lion.jpeg') }}" class="d-block w-100" alt="Lion">
+      </div>
+    </div>
   </div>
   <div id="contact" class="section d-flex align-items-center justify-content-center">
     <div class="container">

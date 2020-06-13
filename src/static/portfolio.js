@@ -4,10 +4,12 @@ const hello_h1 = $("#hello_world")[0];
 const hello_msg = "Hello World!";
 const url = document.URL;
 const hello_arrow = $("#hello_arrow")[0];
+const projects = $('.project')
 var current_section = 'hello';
 var current_color = '#222831';
 var sectionOffsets;
 var sectNum = {};
+var current_project = -1;
 
 function getSectionsOffsets(){
   sectionOffsets = [];
@@ -107,8 +109,19 @@ function share(){
   $("#modal_link")[0].href = share_link;
 }
 
+function projectSlide(prev) {
+  $(projects).hide();
+  if (prev) {
+    current_project = (current_project - 1) % projects.length;
+  } else {
+    current_project = (current_project + 1) % projects.length;
+  }
+  $(projects[current_project]).show();
+}
+
 window.onscroll = function() {scrollNavbar()};
 typeHello();
 $( document ).ready(function() {
     directLink();
+    projectSlide(false);
 });
