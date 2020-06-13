@@ -40,11 +40,12 @@
           <p class="nav-link" onclick="goToSection('contact')">Contact</p>
         </li>
       </ul>
-      <button type="button" class="btn btn-outline-light border-0" data-toggle="modal" data-target="#share_modal"><i class="fas fa-share-alt"></i></button>
+      <button type="button" class="btn btn-outline-light border-0" data-toggle="modal" data-target="#share_modal" onclick="share()"><i class="fas fa-share-alt"></i></button>
     </div>
   </nav>
-  <div id="hello" class="d-flex align-items-center section">
-    <h1 class="m-auto" id="hello_world"></h1>
+  <div id="hello" class="d-flex flex-column align-items-center justify-content-center section">
+    <h1 id="hello_world"></h1>
+    <h2 id="hello_arrow"><i class="fas fa-arrow-circle-down"></i></h2>
   </div>
   <div id="home" class="d-flex flex-column align-items-center justify-content-center section">
     <h1>I am <span>Luciano</span>,</h1>
@@ -115,7 +116,40 @@
     </div>
   </div>
   <div id="projects" class="section"></div>
-  <div id="photography" class="section"></div>
+  <div id="photography" class="section">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <img src="{{ url_for('static', filename='photography/halongbay.jpeg') }}" class="d-block w-100" alt="Ha Long Bay">
+        </div>
+        <div class="col">
+          <img src="{{ url_for('static', filename='photography/zebra.jpeg') }}" class="d-block w-100" alt="Zebra">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <img src="{{ url_for('static', filename='photography/greatwall.jpeg') }}" class="d-block w-100" alt="Great Wall of China">
+        </div>
+        <div class="col">
+          <img src="{{ url_for('static', filename='photography/kinkakuji.jpeg') }}" class="d-block w-100" alt="Kinkaku-Ji">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <img src="{{ url_for('static', filename='photography/bagan.jpeg') }}" class="d-block w-100" alt="Bagan">
+        </div>
+        <div class="col">
+          <img src="{{ url_for('static', filename='photography/tajmahal.jpeg') }}" class="d-block w-100" alt="Taj Mahal">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <img src="{{ url_for('static', filename='photography/elephant.jpeg') }}" class="d-block w-100" alt="Elephant">
+        </div>
+        <div class="col">
+          <img src="{{ url_for('static', filename='photography/lion.jpeg') }}" class="d-block w-100" alt="Lion">
+        </div>
+      </div>
+  </div>
   <div id="contact" class="section d-flex align-items-center justify-content-center">
     <div class="container">
       <h1>Contact me</h1>
@@ -146,18 +180,16 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="share_modal_title">Do you want to include the section to the link?</h5>
+          <h5 class="modal-title" id="share_modal_title">Link copied</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>If you include the site section, the link will directe you to that specific section on the site.</p>
+          <p>The link <a id="modal_link" href="#"></a>, has been copied to your clipboard. </p>
         </div>
         <div class="modal-footer d-flex justify-content-around border-0">
-          <button type="button" class="btn btn-outline-light modal_btn" onclick="share(false)">No</button>
-          <button type="button" class="btn btn-outline-light modal_btn" onclick="share(true)">Yes</button>
-          <button type="button" id="dismiss_btn" class="btn btn-outline-light" data-dismiss="modal" onclick="shareCleanUp()">Ok</button>
+          <button type="button" class="btn btn-outline-light" data-dismiss="modal">Ok</button>
         </div>
       </div>
     </div>

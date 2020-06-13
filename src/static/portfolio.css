@@ -8,6 +8,10 @@ h1, h2, h3, h4, h5, h6, p, small, label, button{
   color: #eeeeee;
 }
 
+h1 {
+  color: #32e0c4;
+}
+
 #navbar {
   display: none;
 }
@@ -26,11 +30,13 @@ h1, h2, h3, h4, h5, h6, p, small, label, button{
 }
 
 #hello h1 {
+    margin-top: 15%;
     font-family: 'Roboto Mono', monospace;
     font-size: 5rem;
 }
 
-#type_pos {
+#hello_arrow {
+  margin-top: 15%;
   animation-duration: 400ms;
   animation-name: blink;
   animation-iteration-count: infinite;
@@ -39,7 +45,7 @@ h1, h2, h3, h4, h5, h6, p, small, label, button{
 
 @keyframes blink {
   from {
-     opacity: 1;
+     opacity: .5;
   }
   to {
      opacity: 0;
@@ -51,16 +57,21 @@ h1, h2, h3, h4, h5, h6, p, small, label, button{
 }
 
 #home h1 {
-  font-family: 'Montserrat', sans-serif;
   font-size: 5rem;
+  color: #eeeeee;
 }
 
 #home h1 span {
   font-weight: bold;
+  color: #32e0c4;
 }
 
 #exp_edu_row, #skills_row{
   width: 100%;
+}
+
+.row {
+  padding: 15px 45px;
 }
 
 #contact input{
@@ -78,10 +89,5 @@ h1, h2, h3, h4, h5, h6, p, small, label, button{
 }
 
 .modal-footer button {
-  width: 30%;
-}
-
-#dismiss_btn{
-  display: none;
   width: 80%;
 }

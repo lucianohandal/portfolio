@@ -3,8 +3,7 @@ const nav_items = $('.nav-item');
 const hello_h1 = $("#hello_world")[0];
 const hello_msg = "Hello World!";
 const url = document.URL;
-const modal_msg = "Do you want to include the section to the link?";
-
+const hello_arrow = $("#hello_arrow")[0];
 var current_section = 'hello';
 var current_color = '#222831';
 var sectionOffsets;
@@ -36,6 +35,7 @@ function showPosition(i) {
     $('.active').removeClass('active');
     return;
   }
+  hello_arrow.innerText = ' ';
   $("#navbar").show();
   $('.active').removeClass('active');
   $(nav_items[i]).addClass('active');
@@ -75,7 +75,7 @@ function typeHello() {
         setTimeout(function(){ typeChar(i); }, i * time);
     }
     setTimeout(function(){
-        hello_h1.innerHTML = 'Hello World!<span id="new_line">\\n</span><span id="type_pos">|</span>';
+        hello_h1.innerHTML = 'Hello World!<span id="new_line">\\n</span></span>';
         }, hello_msg.length * time);
 }
 
@@ -88,7 +88,6 @@ function directLink() {
 }
 
 function copyToClipboard(str) {
-  console.log(str);
   const tempInput = document.createElement("input");
   tempInput.value = str;
   document.body.appendChild(tempInput);
@@ -98,23 +97,14 @@ function copyToClipboard(str) {
   document.body.removeChild(tempInput);
 }
 
-function shareCleanUp() {
-  $('.modal-body').show();
-  $('.modal_btn').show();
-  $('#dismiss_btn').hide();
-  $('#share_modal_title')[0].textContent = modal_msg;
-}
-
-function share(include_section){
+function share(){
   let share_link = url.split('?',2)[0];
-  if (include_section && current_section != 'hello') {
+  if (current_section != 'hello') {
     share_link += '?' + current_section;
   }
   copyToClipboard(share_link);
-  $('.modal-body').hide();
-  $('.modal_btn').hide();
-  $('#dismiss_btn').show();
-  $('#share_modal_title')[0].textContent = "Link Copied";
+  $("#modal_link")[0].innerText = share_link;
+  $("#modal_link")[0].href = share_link;
 }
 
 window.onscroll = function() {scrollNavbar()};
