@@ -95,14 +95,15 @@ h1 {
   height: 100%;
 }
 
-#contact input{
+#contact input,
+#contact textarea{
   border: 0;
+  color: #eeeeee;
   background-color: rgba(238, 238, 238, 0.2);
 }
 
-#contact textarea{
-  border: 0;
-  background-color: rgba(238, 238, 238, 0.2);
+#contact_thx{
+  display: none;
 }
 
 .close{

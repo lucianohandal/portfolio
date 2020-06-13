@@ -4,7 +4,9 @@ const hello_h1 = $("#hello_world")[0];
 const hello_msg = "Hello World!";
 const url = document.URL;
 const hello_arrow = $("#hello_arrow")[0];
-const projects = $('.project')
+const projects = $('.project');
+const git_cards = $('.git_card');
+const contact_form = $("#contact_form")[0];
 var current_section = 'hello';
 var current_color = '#222831';
 var sectionOffsets;
@@ -49,7 +51,7 @@ function colorCoordinate() {
 }
 
 function scrollNavbar(){
-  let scrollPosition = $(window).scrollTop();
+  let scrollPosition = $(window).scrollTop() + navbar.offsetHeight;
   for (var i = 0; i < sectionOffsets.length; i++) {
     if (scrollPosition < sectionOffsets[i].offset) {
       showPosition(i - 1)
@@ -109,19 +111,44 @@ function share(){
   $("#modal_link")[0].href = share_link;
 }
 
-function projectSlide(prev) {
+function projectSlide(prev=false) {
   $(projects).hide();
+  $(git_cards).hide();
   if (prev) {
     current_project = (current_project - 1) % projects.length;
   } else {
     current_project = (current_project + 1) % projects.length;
   }
+  if (current_project == 2) {
+    $(git_cards).show();
+  }
   $(projects[current_project]).show();
+}
+
+function hideContact(){
+  $('#contact_container').hide();
+  $('#contact_thx').show();
+}
+
+function sendForm(){
+  event.preventDefault();
+  $.ajax({
+    data:{
+      name: $(contact_form).serializeArray()[0].value,
+      subject: $(contact_form).serializeArray()[1].value,
+      email: $(contact_form).serializeArray()[2].value,
+      message: $(contact_form).serializeArray()[3].value
+    },
+    type: "POST",
+    url: contact_form.action,
+  });
+  hideContact();
+  return false;
 }
 
 window.onscroll = function() {scrollNavbar()};
 typeHello();
 $( document ).ready(function() {
     directLink();
-    projectSlide(false);
+    projectSlide();
 });
