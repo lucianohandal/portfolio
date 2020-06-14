@@ -7,6 +7,7 @@ const hello_msg_html = "Hello World!<span id='new_line'>\\n</span>";
 const hello_arrow = $("#hello_arrow")[0];
 const hello_arrow_html = '<i class="fas fa-arrow-circle-down"></i>';
 const projects = $('.project');
+const git_title = $('#git_title')[0];
 const git_cards = $('.git_card');
 const contact_form = $("#contact_form")[0];
 var current_section = 'hello';
@@ -118,6 +119,7 @@ function share(){
 
 function projectSlide(prev=false) {
   $(projects).hide();
+  $(git_title).hide();
   $(git_cards).hide();
   if (prev) {
     current_project = (current_project + projects.length - 1) % projects.length;
@@ -125,6 +127,7 @@ function projectSlide(prev=false) {
     current_project = (current_project + 1) % projects.length;
   }
   if (current_project == 2) {
+    $(git_title).show();
     $(git_cards).show();
   }
   $(projects[current_project]).show();

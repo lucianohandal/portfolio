@@ -59,7 +59,7 @@
       </div>
       <div id="exp_edu_row" class="row p-0 m-0 mx-md-3">
         <div class="col-12 col-md-6 p-0">
-          <h2>Education</h2>
+          <h2 class="text-center text-md-left">Education</h2>
           <hr>
           <h4>Purdue University</h4>
           <small>2017 – 2021, West Lafayette, IN</small>
@@ -72,8 +72,8 @@
           <small>2019</small>
           <p>Multi-country study abroad program</p>
         </div>
-        <div class="col-12 col-md-6 p-0">
-          <h2>Experience</h2>
+        <div class="col-12 col-md-6 p-0 my-5 m-md-0">
+          <h2 class="text-center text-md-left">Experience</h2>
           <hr>
           <h4>Goldman Sachs</h4>
           <small>2020, New York, NY (Remote Program)</small>
@@ -91,29 +91,33 @@
       </div>
       <div id="skills_row" class="row p-0 m-0 mx-md-3">
         <div class="col-12 p-0">
-          <h2>Skills</h2>
+          <h2 class="text-center text-md-left">Skills</h2>
           <hr>
         </div>
         <div class="col-12 col-md-6 p-0">
           <h4>Software</h4>
           <p class="mb-0">
-            <span>C</span>, <span>C++</span>, <span>Java</span>, <span>JavaScript</span> and <span>Python</span> programming languages<br>
-            <span>HTML</span> markup language and <span>CSS</span> style sheet language<br>
-            <span>SQL</span> database management language<br>
+            <span>C</span>, <span>C++</span>, <span>Java</span>, <span>JavaScript</span> and <span>Python</span> programming languages<br><br>
+            <span>HTML</span> markup language and <span>CSS</span> style sheet language<br><br>
+            <span>SQL</span> database management language<br><br>
             <span>x86</span> assembly language<br>
             User experience, user interphase and graphic design
           </p>
           <p class="m-0 mb-3 mb-md-0 ml-3">Experience working with <span>Adobe XD</span>, <span>Illustrator</span> and <span>Photoshop</span></p>
         </div>
         <div class="col-12 col-md-6 p-0">
-          <h4>Languages</h4>
+          <h4 class="m-md-0 mt-3">Languages</h4>
           <p>
-            <span>Spanish</span> native speaker<br>
+            <span>Spanish</span> native speaker<br><br>
             <span>German</span> Proficient. Attended to a german high school and achieved B2 level on the Sprachdiplom II
           </p>
         </div>
       </div>
-      <a class="text-center" href="{{ url_for('static', filename='docs/resume.pdf') }}" download="Luciano Handal Resume" target="_blank">Get a full Resume</a>
+      <div class="d-flex justify-content-between flex-column flex-md-row w-100 mt-md-3">
+        <a class="text-center" href="{{ url_for('static', filename='docs/resume.pdf') }}" download="Luciano Handal Resume" target="_blank">Resume</a>
+        <a class="text-center" href="http://www.linkedin.com/in/lhandal98/" target="_blank">LinkedIn</a>
+        <a class="text-center" href="https://github.com/lhandalb/" target="_blank">GitHub</a>
+      </div>
     </div>
 
   </div>
@@ -123,7 +127,7 @@
     </div>
     <div class="row carousel p-0 m-0 pb-5">
       <div class="col-1 p-0">
-        <button type="button" class="carousel_btn btn btn-outline-light border-0" onclick="projectSlide()"><i class="fas fa-chevron-left"></i></button>
+        <button type="button" class="carousel_btn btn btn-outline-light border-0" onclick="projectSlide(true)"><i class="fas fa-chevron-left"></i></button>
       </div>
       <div class="col p-0">
         <div id="easya" class="project card mb-3">
@@ -144,41 +148,44 @@
             <a href="#" class="btn btn-outline-light project_btn">Check It Out</a>
           </div>
         </div>
-        <div id="gitprojects" class="project d-flex justify-content-around align-content-around flex-wrap">
-          <div class="card git_card" style="width: 18rem;">
-            <img src="{{ url_for('static', filename='projects/msrona.png') }}" class="card-img-top" alt="Covid Bot">
-            <div class="card-body d-flex flex-column justify-content-between">
-              <div>
-                <h5 class="card-title">Ms Rona</h5>
-                <p class="card-text">WhatsApp bot that sends information of the COVID-19 pandemic. The information include reports of cases globally and by country. It also sends information about prevention and symptoms.</p>
+        <div id="gitprojects" class="project">
+          <h4 class="text-center" id="git_title">Open Souce Projects</h4>
+          <div class="d-flex justify-content-around align-content-around flex-wrap">
+            <div class="card git_card mb-3 m-lg-0">
+              <img src="{{ url_for('static', filename='projects/msrona.png') }}" class="card-img-top" alt="Covid Bot">
+              <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                  <h5 class="card-title">Ms Rona</h5>
+                  <p class="card-text">WhatsApp bot that sends information of the COVID-19 pandemic. The information include reports of cases globally and by country. It also sends information about prevention and symptoms.</p>
+                </div>
+                <a href="https://github.com/lhandalb/tinderBot" class="btn btn-outline-light project_btn">Go to Repository</a>
               </div>
-              <a href="https://github.com/lhandalb/tinderBot" class="btn btn-outline-light project_btn">Go to Repository</a>
             </div>
-          </div>
-          <div class="card git_card" style="width: 18rem;">
-            <img src="{{ url_for('static', filename='projects/tinderbot.jpg') }}" class="card-img-top" alt="Tinder Bot">
-            <div class="card-body d-flex flex-column justify-content-between">
-              <div>
-                <h5 class="card-title">Tinder Bot</h5>
-                <p class="card-text">Tinder bot that logs in into an account and 'likes' all profiles on an specified location until the user is out of swipes.</p>
+            <div class="card git_card mb-3 m-lg-0">
+              <img  src="{{ url_for('static', filename='projects/tinderbot.jpg') }}" class="card-img-top" alt="Tinder Bot">
+              <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                  <h5 class="card-title">Tinder Bot</h5>
+                  <p class="card-text">Tinder bot that logs in into an account and 'likes' all profiles on an specified location until the user is out of swipes.</p>
+                </div>
+                <a href="https://github.com/lhandalb/covid-bot" class="btn btn-outline-light project_btn">Go to Repository</a>
               </div>
-              <a href="https://github.com/lhandalb/covid-bot" class="btn btn-outline-light project_btn">Go to Repository</a>
             </div>
-          </div>
-          <div class="card git_card" style="width: 18rem;">
-            <img src="{{ url_for('static', filename='projects/portfolio.jpg') }}" class="card-img-top" alt="This">
-            <div class="card-body d-flex flex-column justify-content-between">
-              <div>
-                <h5 class="card-title">This</h5>
-                <p class="card-text">Minimalistic open-source portfolio</p>
+            <div class="card git_card">
+              <img  src="{{ url_for('static', filename='projects/portfolio.jpg') }}" class="card-img-top" alt="This">
+              <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                  <h5 class="card-title">This</h5>
+                  <p class="card-text">Minimalistic open-source portfolio</p>
+                </div>
+                <a href="https://github.com/lhandalb/portfolio" class="btn btn-outline-light project_btn">Go to Repository</a>
               </div>
-              <a href="https://github.com/lhandalb/portfolio" class="btn btn-outline-light project_btn">Go to Repository</a>
             </div>
           </div>
         </div>
       </div>
       <div class="col-1 p-0">
-        <button type="button" class="carousel_btn btn btn-outline-light border-0" onclick="projectSlide(false)"><i class="fas fa-chevron-right"></i></button>
+        <button type="button" class="carousel_btn btn btn-outline-light border-0" onclick="projectSlide()"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
   </div>

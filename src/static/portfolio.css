@@ -8,6 +8,10 @@ h1, h2, h3, h4, h5, h6, p, small, label, button{
   color: #eeeeee;
 }
 
+hr{
+  border-color: #eeeeee;
+}
+
 a {
   font-family: 'Montserrat', sans-serif;
   color: #32e0c4;
@@ -18,6 +22,7 @@ h1 {
 }
 
 #navbar {
+  width: 100vw;
   display: none;
 }
 
@@ -80,6 +85,19 @@ h1 {
   h3 {
     font-size: 1.3rem;
   }
+  .section {
+    padding-top: 3.5rem;
+  }
+  .git_card img{
+    display: none;
+  }
+}
+
+@media (min-width: 576px) {
+  #about hr{
+    width: 95%;
+    margin-left: 0;
+  }
 }
 
 #exp_edu_row, #skills_row{
@@ -91,7 +109,7 @@ h1 {
 }
 
 .carousel {
-  min-height: 80vh;
+  /* min-height: 80vh; */
 }
 
 .carousel_btn{
@@ -110,8 +128,8 @@ h1 {
   background-color: rgba(238, 238, 238, 0.2);
 }
 
-#projects .project{
-  height: 100%;
+.git_card {
+  width: 18rem;
 }
 
 #projects .project_btn{
