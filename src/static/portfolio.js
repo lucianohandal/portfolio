@@ -115,7 +115,7 @@ function projectSlide(prev=false) {
   $(projects).hide();
   $(git_cards).hide();
   if (prev) {
-    current_project = (current_project - 1) % projects.length;
+    current_project = (current_project + projects.length - 1) % projects.length;
   } else {
     current_project = (current_project + 1) % projects.length;
   }
