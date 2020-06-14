@@ -33,11 +33,11 @@ h1 {
 }
 
 .section:nth-of-type(odd) {
-  background:  #393e46;
+  background:  #222831;
 }
 
 .section:nth-of-type(even) {
-  background:  #222831;
+  background:  #393e46;
 }
 
 #hello h1 {
@@ -106,10 +106,6 @@ h1 {
 
 .row {
   padding: 15px 45px;
-}
-
-.carousel {
-  /* min-height: 80vh; */
 }
 
 .carousel_btn{

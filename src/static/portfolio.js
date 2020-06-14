@@ -10,6 +10,7 @@ const projects = $('.project');
 const git_title = $('#git_title')[0];
 const git_cards = $('.git_card');
 const contact_form = $("#contact_form")[0];
+const query = url.split('?',2)[1];
 var current_section = 'hello';
 var current_color = '#222831';
 var sectionOffsets;
@@ -90,7 +91,6 @@ function typeHello() {
 }
 
 function directLink() {
-  let query = url.split('?',2)[1];
   if (query == null || query =="") {
     return;
   }
@@ -155,9 +155,11 @@ function sendForm(){
 }
 
 window.onscroll = function() {scrollNavbar()};
-typeHello();
 $( document ).ready(function() {
-  directLink();
+  if (query == null || query =="") {
+    typeHello();
+  }
   projectSlide();
   getSectionsOffsets();
+  directLink();
 });

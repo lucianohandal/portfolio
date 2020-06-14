@@ -34,9 +34,6 @@
           <p class="nav-link" onclick="goToSection('projects')">Projects</p>
         </li>
         <li class="nav-item">
-          <p class="nav-link" onclick="goToSection('photography')">Photography</p>
-        </li>
-        <li class="nav-item">
           <p class="nav-link" onclick="goToSection('contact')">Contact</p>
         </li>
       </ul>
@@ -44,7 +41,7 @@
     </div>
   </nav>
   <div id="hello" class="d-flex flex-column align-items-center justify-content-center section">
-    <h1 class="text-center" id="hello_world"></h1>
+    <h1 class="text-center" id="hello_world">Hello World!<span id='new_line'>\n</span></h1>
     <h2 id="hello_arrow">&nbsp;</h2>
   </div>
   <div id="home" class="d-flex flex-column align-items-center justify-content-center section">
@@ -113,8 +110,8 @@
           </p>
         </div>
       </div>
-      <div class="d-flex justify-content-between flex-column flex-md-row w-100 mt-md-3">
-        <a class="text-center" href="{{ url_for('static', filename='docs/resume.pdf') }}" download="Luciano Handal Resume" target="_blank">Resume</a>
+      <div class="d-flex justify-content-md-around flex-column flex-md-row w-100 mt-md-3">
+        <a class="text-center" href="{{ url_for('static', filename='docs/resume.pdf') }}" target="_blank">Resume</a>
         <a class="text-center" href="http://www.linkedin.com/in/lhandal98/" target="_blank">LinkedIn</a>
         <a class="text-center" href="https://github.com/lhandalb/" target="_blank">GitHub</a>
       </div>
@@ -145,7 +142,7 @@
             <h5 class="card-title">AR Sandbox</h5>
             <p class="card-text">Inspired by University of California Davis’s Augmented Reality (AR) Sandbox, my Engineering Projects in Community Service (EPICS) team and I decided to build a variation od that project. Our AR Sandbox was built to cater to the needs of our project partner, Camp Riley. The AR Sandbox was designed to help children with disabilities improve their motor skills in a safe and controlled environment.</p>
             <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-            <a href="#" class="btn btn-outline-light project_btn">Check It Out</a>
+            <a href="{{ url_for('arsandbox') }}" class="btn btn-outline-light project_btn">Check It Out</a>
           </div>
         </div>
         <div id="gitprojects" class="project">
@@ -186,43 +183,6 @@
       </div>
       <div class="col-1 p-0">
         <button type="button" class="carousel_btn btn btn-outline-light border-0" onclick="projectSlide()"><i class="fas fa-chevron-right"></i></button>
-      </div>
-    </div>
-  </div>
-  <div id="photography" class="section">
-    <div class="row">
-      <h1>Photography</h1>
-    </div>
-    <div class="row">
-      <div class="col-12 col-md-6">
-        <img src="{{ url_for('static', filename='photography/halongbay.jpeg') }}" class="d-block w-100" alt="Ha Long Bay">
-      </div>
-      <div class="col">
-        <img src="{{ url_for('static', filename='photography/zebra.jpeg') }}" class="d-block w-100" alt="Zebra">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-md-6">
-        <img src="{{ url_for('static', filename='photography/greatwall.jpeg') }}" class="d-block w-100" alt="Great Wall of China">
-      </div>
-      <div class="col">
-        <img src="{{ url_for('static', filename='photography/kinkakuji.jpeg') }}" class="d-block w-100" alt="Kinkaku-Ji">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-md-6">
-        <img src="{{ url_for('static', filename='photography/bagan.jpeg') }}" class="d-block w-100" alt="Bagan">
-      </div>
-      <div class="col">
-        <img src="{{ url_for('static', filename='photography/tajmahal.jpeg') }}" class="d-block w-100" alt="Taj Mahal">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-md-6">
-        <img src="{{ url_for('static', filename='photography/elephant.jpeg') }}" class="d-block w-100" alt="Elephant">
-      </div>
-      <div class="col">
-        <img src="{{ url_for('static', filename='photography/lion.jpeg') }}" class="d-block w-100" alt="Lion">
       </div>
     </div>
   </div>
