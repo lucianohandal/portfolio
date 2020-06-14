@@ -16,7 +16,7 @@
 
   <title>Luciano Handal</title>
 </head>
-<body>
+<body onresize="getSectionsOffsets()">
   <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
     <!-- <a class="navbar-brand" href="#">Navbar</a> -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,11 +44,11 @@
     </div>
   </nav>
   <div id="hello" class="d-flex flex-column align-items-center justify-content-center section">
-    <h1 id="hello_world"></h1>
-    <h2 id="hello_arrow"><i class="fas fa-arrow-circle-down"></i></h2>
+    <h1 class="text-center" id="hello_world"></h1>
+    <h2 id="hello_arrow">&nbsp;</h2>
   </div>
   <div id="home" class="d-flex flex-column align-items-center justify-content-center section">
-    <h1>I am <span>Luciano</span>,</h1>
+    <h1 class="text-center">I am <span>Luciano</span>,</h1>
     <h3 class="text-center">Computer Science student and International Ambassador<br>at Purdue University.</h3>
   </div>
   <div id="about" class="section">
@@ -57,8 +57,8 @@
         <h1>About Me</h1>
         <p>Self-starter student with strong technical background, analytical skills and the ability to learn quickly. Team player constantly learning from others and improving my leadership and communication skills.</p>
       </div>
-      <div id="exp_edu_row" class="row">
-        <div class="col-6 pl-0">
+      <div id="exp_edu_row" class="row p-0 m-0 mx-md-3">
+        <div class="col-12 col-md-6 p-0">
           <h2>Education</h2>
           <hr>
           <h4>Purdue University</h4>
@@ -72,7 +72,7 @@
           <small>2019</small>
           <p>Multi-country study abroad program</p>
         </div>
-        <div class="col-6 pr-0">
+        <div class="col-12 col-md-6 p-0">
           <h2>Experience</h2>
           <hr>
           <h4>Goldman Sachs</h4>
@@ -88,32 +88,34 @@
           <small>2017, La Paz, Bolivia</small>
           <p>Graphic Designer</p>
         </div>
-        <div id="skills_row" class="row">
-          <div class="col-12">
-            <h2>Skills</h2>
-            <hr>
-          </div>
-          <div class="col-6">
-            <h4>Software</h4>
-            <p class="mb-0">
-              <span>C</span>, <span>C++</span>, <span>Java</span>, <span>JavaScript</span> and <span>Python</span> programming languages<br>
-              <span>HTML</span> markup language and <span>CSS</span> style sheet language<br>
-              <span>SQL</span> database management language<br>
-              <span>x86</span> assembly language<br>
-              User experience, user interphase and graphic design
-            </p>
-            <p class="m-0 ml-3">Experience working with <span>Adobe XD</span>, <span>Illustrator</span> and <span>Photoshop</span></p>
-          </div>
-          <div class="col-6">
-            <h4>Languages</h4>
-            <p>
-              <span>Spanish</span> native speaker<br>
-              <span>German</span> Proficient. Attended to a german high school and achieved B2 level on the Sprachdiplom II
-            </p>
-          </div>
+      </div>
+      <div id="skills_row" class="row p-0 m-0 mx-md-3">
+        <div class="col-12 p-0">
+          <h2>Skills</h2>
+          <hr>
+        </div>
+        <div class="col-12 col-md-6 p-0">
+          <h4>Software</h4>
+          <p class="mb-0">
+            <span>C</span>, <span>C++</span>, <span>Java</span>, <span>JavaScript</span> and <span>Python</span> programming languages<br>
+            <span>HTML</span> markup language and <span>CSS</span> style sheet language<br>
+            <span>SQL</span> database management language<br>
+            <span>x86</span> assembly language<br>
+            User experience, user interphase and graphic design
+          </p>
+          <p class="m-0 mb-3 mb-md-0 ml-3">Experience working with <span>Adobe XD</span>, <span>Illustrator</span> and <span>Photoshop</span></p>
+        </div>
+        <div class="col-12 col-md-6 p-0">
+          <h4>Languages</h4>
+          <p>
+            <span>Spanish</span> native speaker<br>
+            <span>German</span> Proficient. Attended to a german high school and achieved B2 level on the Sprachdiplom II
+          </p>
         </div>
       </div>
+      <a class="text-center" href="{{ url_for('static', filename='docs/resume.pdf') }}" download="Luciano Handal Resume" target="_blank">Get a full Resume</a>
     </div>
+
   </div>
   <div id="projects" class="section">
     <div class="row">

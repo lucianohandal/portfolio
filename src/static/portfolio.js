@@ -1,9 +1,11 @@
 const navbar = $("#navbar")[0];
 const nav_items = $('.nav-item');
 const hello_h1 = $("#hello_world")[0];
-const hello_msg = "Hello World!";
 const url = document.URL;
+const hello_msg = "Hello World!";
+const hello_msg_html = "Hello World!<span id='new_line'>\\n</span>";
 const hello_arrow = $("#hello_arrow")[0];
+const hello_arrow_html = '<i class="fas fa-arrow-circle-down"></i>';
 const projects = $('.project');
 const git_cards = $('.git_card');
 const contact_form = $("#contact_form")[0];
@@ -27,7 +29,6 @@ function getSectionsOffsets(){
     sectNum[id] = i++;
   }
 }
-getSectionsOffsets();
 
 function showPosition(i) {
   if (current_section == sectionOffsets[i+1].id) {
@@ -70,17 +71,21 @@ function goToSection(section_id){
 
 
 function typeChar(i) {
-    hello_h1.innerText = hello_msg.substring(0, i) + '|';
+  hello_h1.innerText = hello_msg.substring(0, i) + '|';
 }
 
 function typeHello() {
-    const time = 100;
-    for (let i = 0; i < hello_msg.length; i++) {
-        setTimeout(function(){ typeChar(i); }, i * time);
-    }
-    setTimeout(function(){
-        hello_h1.innerHTML = 'Hello World!<span id="new_line">\\n</span></span>';
-        }, hello_msg.length * time);
+  const rate = 100;
+  var time;
+  let msg_length = hello_msg.length;
+  for (let i = 0; i < msg_length; i++) {
+    time = i * rate;
+    setTimeout(function(){ typeChar(i); }, time);
+  }
+  time += rate;
+  setTimeout(function(){hello_h1.innerHTML = hello_msg_html;}, time);
+  time *= 2;
+  setTimeout(function(){hello_arrow.innerHTML = hello_arrow_html;}, time);
 }
 
 function directLink() {
@@ -149,6 +154,7 @@ function sendForm(){
 window.onscroll = function() {scrollNavbar()};
 typeHello();
 $( document ).ready(function() {
-    directLink();
-    projectSlide();
+  directLink();
+  projectSlide();
+  getSectionsOffsets();
 });
