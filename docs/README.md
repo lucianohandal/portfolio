@@ -25,7 +25,12 @@ pip install -r requirements.txt
 
 ### Usage
 
-To run the code locally run
+To run the code locally
+
+1. Add gmail credentials
+Open the file email_configs.py and enter the senders email and password and the recipient
+
+2. Start the server
 ```sh
 python wsgi.app
 ```
