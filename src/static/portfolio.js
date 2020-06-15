@@ -69,10 +69,9 @@ function scrollNavbar(){
 function goToSection(section_id){
   if (sectNum[section_id] != null) {
     window.scrollTo(0, sectionOffsets[sectNum[section_id] - 1].offset);
+    $('.navbar-collapse').collapse('hide');
   }
 }
-
-
 
 function typeChar(i) {
   hello_h1.innerText = hello_msg.substring(0, i) + '|';
