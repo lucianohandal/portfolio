@@ -150,10 +150,6 @@ h1 {
   display: none;
 }
 
-.modal-dialog{
-  max-width: 100%;
-}
-
 .close{
   color: white;
 }
