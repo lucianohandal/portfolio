@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, json
+from werkzeug.exceptions import HTTPException
 from flask_mail import Mail, Message
 from .email_configs import sender, password, recipient
 
@@ -18,7 +19,7 @@ app.config.update(mail_settings)
 mail = Mail(app)
 
 @app.route("/", methods=['POST', 'GET'])
-def home_view():
+def home():
 	try:
 		if request.method == 'POST':
 			name = request.form['name']
@@ -45,6 +46,11 @@ def home_view():
 def arsandbox():
     return render_template('arsandbox.html')
 
-# @app.errorhandler(404)
-# def not_found(e):
-#   return render_template("error.html", error_code=404)
+@app.errorhandler(HTTPException)
+def error(e):
+    error_dic = {
+        "code": e.code,
+        "name": e.name,
+        "description": e.description,
+    }
+    return render_template('error.html', error=error_dic)

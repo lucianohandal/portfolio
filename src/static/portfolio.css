@@ -22,7 +22,7 @@ h1 {
 }
 
 #navbar {
-  width: 100vw;
+  width: 100%;
   display: none;
 }
 
@@ -148,6 +148,10 @@ h1 {
 
 #contact_thx{
   display: none;
+}
+
+.modal-dialog{
+  max-width: 100%;
 }
 
 .close{

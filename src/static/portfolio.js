@@ -1,3 +1,4 @@
+const body = $('body')[0];
 const navbar = $("#navbar")[0];
 const nav_items = $('.nav-item');
 const hello_h1 = $("#hello_world")[0];
@@ -51,6 +52,7 @@ function showPosition(i) {
 function colorCoordinate() {
   $(navbar).css('background-color', current_color)
   $('.modal-content').css('background-color', current_color)
+  $(body).css('background-color', current_color)
 }
 
 function scrollNavbar(){

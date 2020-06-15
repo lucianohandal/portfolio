@@ -50,9 +50,25 @@
   </div>
   <div id="about" class="section">
     <div class="container d-flex flex-column align-items-center justify-content-center py-3">
-      <div class="flex-row">
-        <h1>About Me</h1>
-        <p>Self-starter student with strong technical background, analytical skills and the ability to learn quickly. Team player constantly learning from others and improving my leadership and communication skills.</p>
+      <div class="row p-0">
+        <div class="col-12 col-md-6">
+          <h1>About Me</h1>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="d-flex justify-content-between w-100 mt-md-3">
+            <a class="text--center" href="{{ url_for('static', filename='docs/resume.pdf') }}" target="_blank">Resume <i class="fas fa-file"></i></a>
+            <a class="text-center" href="http://www.linkedin.com/in/lhandal98/" target="_blank">LinkedIn <i class="fab fa-linkedin"></i></a>
+            <a class="text-center" href="https://github.com/lhandalb/" target="_blank">GitHub <i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="col-12">
+          <p>
+            Self-starter student with strong technical background, analytical
+            skills and the ability to learn quickly. Team player constantly
+            learning from others and improving my leadership and communication
+            skills.
+          </p>
+        </div>
       </div>
       <div id="exp_edu_row" class="row p-0 m-0 mx-md-3">
         <div class="col-12 col-md-6 p-0">
@@ -86,7 +102,7 @@
           <p>Graphic Designer</p>
         </div>
       </div>
-      <div id="skills_row" class="row p-0 m-0 mx-md-3">
+      <div id="skills_row" class="row p-0 m-0 mb-5 mx-md-3">
         <div class="col-12 p-0">
           <h2 class="text-center text-md-left">Skills</h2>
           <hr>
@@ -110,11 +126,11 @@
           </p>
         </div>
       </div>
-      <div class="d-flex justify-content-md-around flex-column flex-md-row w-100 mt-md-3">
+      <!-- <div class="d-flex justify-content-md-around flex-column flex-md-row w-100 mt-md-3">
         <a class="text-center" href="{{ url_for('static', filename='docs/resume.pdf') }}" target="_blank">Resume</a>
         <a class="text-center" href="http://www.linkedin.com/in/lhandal98/" target="_blank">LinkedIn</a>
         <a class="text-center" href="https://github.com/lhandalb/" target="_blank">GitHub</a>
-      </div>
+      </div> -->
     </div>
 
   </div>
