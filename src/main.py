@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, json
 from werkzeug.exceptions import HTTPException
 from flask_mail import Mail, Message
-from .email_configs import sender, password, recipient
+from .email_configs import sender, password, recipients
 
 app = Flask(__name__)
 
@@ -35,7 +35,7 @@ def home():
 			if name != '':
 				msg_body = f'From {name} ({email})\n{message}'
 
-			msg = Message(body=msg_body, subject=msg_subject, recipients=[recipient])
+			msg = Message(body=msg_body, subject=msg_subject, recipients=recipients)
 			mail.send(msg)
 	except Exception as e:
 		pass
