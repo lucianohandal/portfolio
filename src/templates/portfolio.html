@@ -17,32 +17,33 @@
   <title>Luciano Handal</title>
 </head>
 <body onresize="getSectionsOffsets()">
-  <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
-    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <nav id="navbar" class="navbar navbar-expand-sm fixed-top navbar-dark">
+    <div class="d-flex justify-content-end">
+      <button class="navbar-toggler border-0" type="button" onclick="toggleIcon()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i id="nav_icon" class="fas fa-ellipsis-v"></i>
+      </button>
+    </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <p class="nav-link" onclick="goToSection('home')">Home</p>
+          <a class="nav-link text-right m-0" onclick="goToSection('home')">Home</a>
         </li>
         <li class="nav-item">
-          <p class="nav-link" onclick="goToSection('about')">About</p>
+          <a class="nav-link text-right m-0" onclick="goToSection('about')">About</a>
         </li>
         <li class="nav-item">
-          <p class="nav-link" onclick="goToSection('projects')">Projects</p>
+          <a class="nav-link text-right m-0" onclick="goToSection('projects')">Projects</a>
         </li>
         <li class="nav-item">
-          <p class="nav-link" onclick="goToSection('contact')">Contact</p>
+          <a class="nav-link text-right m-0" onclick="goToSection('contact')">Contact</a>
         </li>
       </ul>
-      <button type="button" class="btn btn-outline-light border-0" data-toggle="modal" data-target="#share_modal" onclick="share()"><i class="fas fa-share-alt"></i></button>
+      <button type="button" class="btn btn-outline-light border-0 d-none d-sm-block" data-toggle="modal" data-target="#share_modal" onclick="share()"><i class="fas fa-share-alt"></i></button>
     </div>
   </nav>
-  <div id="hello" class="d-flex flex-column align-items-center justify-content-center section">
+  <div id="hello" class="section">
     <h1 class="text-center" id="hello_world">Hello World!<span id='new_line'>\n</span></h1>
-    <h2 id="hello_arrow">&nbsp;</h2>
+    <h2 id="hello_arrow" class="text-center" onclick="goToSection('home')"><i class="fas fa-arrow-circle-down"></i></h2>
   </div>
   <div id="home" class="d-flex flex-column align-items-center justify-content-center section">
     <h1 class="text-center">I am <span>Luciano</span>,</h1>
@@ -55,7 +56,7 @@
           <h1>About Me</h1>
         </div>
         <div class="col-12 col-md-6">
-          <div class="d-flex justify-content-between w-100 mt-md-3">
+          <div class="d-flex justify-content-around w-100 mt-md-3">
             <a class="text--center" href="{{ url_for('static', filename='docs/resume.pdf') }}" target="_blank">Resume <i class="fas fa-file"></i></a>
             <a class="text-center" href="http://www.linkedin.com/in/lhandal98/" target="_blank">LinkedIn <i class="fab fa-linkedin"></i></a>
             <a class="text-center" href="https://github.com/lhandalb/" target="_blank">GitHub <i class="fab fa-github"></i></a>
@@ -129,71 +130,131 @@
     </div>
 
   </div>
-  <div id="projects" class="section">
-    <div class="row">
+  <div id="projects" class="section ">
+
+
+    <div id="projects_title" class="container d-flex flex-column justify-content-end">
       <h1>Projects</h1>
     </div>
-    <div class="row carousel p-0 m-0 pb-5">
-      <div class="col-1 p-0">
-        <button type="button" class="carousel_btn btn btn-outline-light border-0" onclick="projectSlide(true)"><i class="fas fa-chevron-left"></i></button>
+
+    <div id="projects_container" class="container d-flex justify-content-center align-items-center">
+      <div id="project_btn" class="d-flex justify-content-between d-sm-none">
+        <button type="button" class="btn-outline-light border-0" onclick="projectSlide(true)"><i class="fas fa-chevron-left"></i></button>
+        <button type="button" class="btn-outline-light border-0" onclick="projectSlide()"><i class="fas fa-chevron-right"></i></button>
       </div>
-      <div class="col p-0">
-        <div id="easya" class="project card mb-3">
-          <img src="{{ url_for('static', filename='projects/easya.jpg') }}" class="card-img-top" alt="easyA">
-          <div class="card-body">
-            <h5 class="card-title">easyA</h5>
-            <p class="card-text">easyA is a review site which allows Purdue students to rate courses. The web application helps students decide between courses choices and get an insight of different academic paths.</p>
-            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-            <a href="https://www.easya.app" class="btn btn-outline-light project_btn">Check It Out</a>
+      <div class="row">
+        <div id="seispuntos" class="project_div col-12 col-sm-6 col-lg-4 selected">
+          <div class="project_info d-flex flex-column justify-content-center align-items-center">
+            <p class="text-center m-0 p-0">Seis Puntos</p>
+            <small class="text-center p-3">
+              Landing page for a custom software development startup
+            </small>
+            <a class="btn btn-outline-light text-center" href="https://www.seispuntos.com/" target="_blank">Check It Out</a>
+          </div>
+          <div class="project d-flex justify-content-center">
+          </div>
+          <div class="d-flex flex-column justify-content-center d-sm-none">
+            <p class="text-center">Seis Puntos</p>
+            <small>
+              Landing page for a custom software development startup
+            </small>
+            <a class="text-center" href="https://www.seispuntos.com/" target="_blank">Check It Out</a>
           </div>
         </div>
-        <div id="epics" class="project card mb-3">
-          <img src="{{ url_for('static', filename='projects/arsandbox.jpg') }}" class="card-img-top" alt="AR Sandbox">
-          <div class="card-body">
-            <h5 class="card-title">AR Sandbox</h5>
-            <p class="card-text">Inspired by University of California Davis’s Augmented Reality (AR) Sandbox, my Engineering Projects in Community Service (EPICS) team and I decided to build a variation od that project. Our AR Sandbox was built to cater to the needs of our project partner, Camp Riley. The AR Sandbox was designed to help children with disabilities improve their motor skills in a safe and controlled environment.</p>
-            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-            <a href="{{ url_for('arsandbox') }}" class="btn btn-outline-light project_btn">Check It Out</a>
+        <div id="easya" class="project_div col-12 col-sm-6 col-lg-4">
+          <div class="project_info d-flex flex-column justify-content-center  align-items-center">
+            <p class="text-center m-0 p-0">easyA</p>
+            <small class="text-center p-3">
+              Review site which allows Purdue courses.
+            </small>
+            <a class="btn btn-outline-light text-center" href="https://www.easya.app" target="_blank">Check It Out</a>
+          </div>
+          <div class="project d-flex justify-content-center">
+            <!-- <img src="{{ url_for('static', filename='projects/easya.jpg') }}" alt="easyA"> -->
+          </div>
+          <div class="d-flex flex-column justify-content-center d-sm-none">
+            <p class="text-center">easyA</p>
+            <small class="text-center">
+              Review site which allows Purdue courses.
+            </small>
+            <a class="text-center"  href="https://www.easya.app" target="_blank">Check It Out</a>
           </div>
         </div>
-        <div id="gitprojects" class="project">
-          <h4 class="text-center" id="git_title">Open Souce Projects</h4>
-          <div class="d-flex justify-content-around align-content-around flex-wrap">
-            <div class="card git_card mb-3 m-lg-0">
-              <img src="{{ url_for('static', filename='projects/msrona.png') }}" class="card-img-top" alt="Covid Bot">
-              <div class="card-body d-flex flex-column justify-content-between">
-                <div>
-                  <h5 class="card-title">Ms Rona</h5>
-                  <p class="card-text">WhatsApp bot that sends information of the COVID-19 pandemic. The information include reports of cases globally and by country. It also sends information about prevention and symptoms.</p>
-                </div>
-                <a href="https://github.com/lhandalb/covid-bot" class="btn btn-outline-light project_btn">Go to Repository</a>
-              </div>
-            </div>
-            <div class="card git_card mb-3 m-lg-0">
-              <img  src="{{ url_for('static', filename='projects/tinderbot.jpg') }}" class="card-img-top" alt="Tinder Bot">
-              <div class="card-body d-flex flex-column justify-content-between">
-                <div>
-                  <h5 class="card-title">Tinder Bot</h5>
-                  <p class="card-text">Tinder bot that logs in into an account and 'likes' all profiles on an specified location until the user is out of swipes.</p>
-                </div>
-                <a href="https://github.com/lhandalb/tinderBot" class="btn btn-outline-light project_btn">Go to Repository</a>
-              </div>
-            </div>
-            <div class="card git_card">
-              <img  src="{{ url_for('static', filename='projects/portfolio.jpg') }}" class="card-img-top" alt="This">
-              <div class="card-body d-flex flex-column justify-content-between">
-                <div>
-                  <h5 class="card-title">This</h5>
-                  <p class="card-text">Minimalistic open-source portfolio</p>
-                </div>
-                <a href="https://github.com/lhandalb/portfolio" class="btn btn-outline-light project_btn">Go to Repository</a>
-              </div>
-            </div>
+        <div id="arsandbox"  class="project_div col-12 col-sm-6 col-lg-4">
+          <div class="project_info d-flex flex-column justify-content-center  align-items-center">
+            <p class="text-center m-0 p-0">AR Sandbox</p>
+            <small class="text-center p-3">
+              Augmented Reality (AR) Sandbox crafted for Camp Riley.
+            </small>
+            <a class="btn btn-outline-light text-center" href="{{ url_for('arsandbox') }}" target="_blank">Check It Out</a>
+          </div>
+          <div class="project d-flex justify-content-center">
+            <!-- <img src="{{ url_for('static', filename='projects/arsandbox.jpg') }}" alt="AR Sandbox"> -->
+          </div>
+          <div class="d-flex flex-column justify-content-center d-sm-none">
+            <p class="text-center">AR Sandbox</p>
+            <small>
+              Augmented Reality (AR) Sandbox crafted for Camp Riley.
+            </small>
+            <a class="text-center" href="{{ url_for('arsandbox') }}" target="_blank">Check It Out</a>
           </div>
         </div>
-      </div>
-      <div class="col-1 p-0">
-        <button type="button" class="carousel_btn btn btn-outline-light border-0" onclick="projectSlide()"><i class="fas fa-chevron-right"></i></button>
+        <div id="msrona" class="project_div col-12 col-sm-6 col-lg-4">
+          <div class="project_info d-flex flex-column justify-content-center  align-items-center">
+            <p class="text-center m-0 p-0" href="https://github.com/lhandalb/covid-bot" target="_blank">Ms Rona</p>
+            <small class="text-center p-3">
+              WhatsApp bot that sends current information of the COVID-19 pandemic.
+            </small>
+            <a class="btn btn-outline-light text-center" href="https://github.com/lhandalb/covid-bot" target="_blank">Go To Repository</a>
+          </div>
+          <div class="project">
+            <!-- <img class="png_img" src="{{ url_for('static', filename='projects/msrona.png') }}" alt="Ms Rona"> -->
+          </div>
+          <div class="d-flex flex-column justify-content-center d-sm-none">
+            <p class="text-center">Ms Rona</p>
+            <small>
+              WhatsApp bot that sends current information of the COVID-19 pandemic.
+            </small>
+            <a class="text-center" href="https://github.com/lhandalb/covid-bot" target="_blank">Go To Repository</a>
+          </div>
+        </div>
+        <div id="tinderbot" class="project_div col-12 col-sm-6 col-lg-4">
+          <div class="project_info d-flex flex-column justify-content-center  align-items-center">
+            <p class="text-center m-0 p-0">Tinder Bot</p>
+            <small class="text-center p-3">
+              Tinder bot that logs in into an account and 'likes' all profiles
+              on an specified location.
+            </small>
+            <a class="btn btn-outline-light text-center" href="https://github.com/lhandalb/tinderBot" target="_blank">Go To Repository</a>
+          </div>
+          <div class="project d-flex justify-content-center">
+            <!-- <img src="{{ url_for('static', filename='projects/tinderbot.jpg') }}" alt="Tinder Bot"> -->
+          </div>
+          <div class="d-flex flex-column justify-content-center d-sm-none">
+            <p class="text-center">Tinder Bot</p>
+            <small>
+              Tinder bot that logs in into an account and 'likes' all profiles
+              on an specified location.
+            </small>
+            <a class="text-center" href="https://github.com/lhandalb/tinderBot" target="_blank">Go To Repository</a>
+          </div>
+        </div>
+        <div id="portfolio" class="project_div col-12 col-sm-6 col-lg-4">
+          <div class="project_info d-flex flex-column justify-content-center  align-items-center">
+            <p class="text-center m-0 p-0">This</p>
+            <small class="text-center p-3">Minimalistic open-source portfolio</small>
+            <a class="btn btn-outline-light text-center" href="https://github.com/lhandalb/portfolio" target="_blank">Go To Repository</a>
+          </div>
+          <div class="project d-flex justify-content-center">
+            <!-- <img src="{{ url_for('static', filename='projects/portfolio.jpg') }}" alt="Portfolio"> -->
+          </div>
+          <div class="d-flex flex-column justify-content-center d-sm-none">
+            <p class="text-center">This</p>
+            <small>Minimalistic open-source portfolio</small>
+            <a class="text-center" href="https://github.com/lhandalb/portfolio" target="_blank">Go To Repository</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -253,6 +314,7 @@
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="{{ url_for('static', filename='portfolio.js') }}"></script>
+  <script type="text/javascript"> getVars('{{loc}}') </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>

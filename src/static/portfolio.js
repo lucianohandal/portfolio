@@ -5,18 +5,19 @@ const hello_h1 = $("#hello_world")[0];
 const url = document.URL;
 const hello_msg = "Hello World!";
 const hello_msg_html = "Hello World!<span id='new_line'>\\n</span>";
-const hello_arrow = $("#hello_arrow")[0];
-const hello_arrow_html = '<i class="fas fa-arrow-circle-down"></i>';
-const projects = $('.project');
-const git_title = $('#git_title')[0];
-const git_cards = $('.git_card');
+const projects = $('.project_div');
 const contact_form = $("#contact_form")[0];
 const query = url.split('?',2)[1];
 var current_section = 'hello';
 var current_color = '#222831';
 var sectionOffsets;
 var sectNum = {};
-var current_project = -1;
+var current_project = 0;
+var loc;
+
+function getVars(location) {
+  loc = location;
+}
 
 function getSectionsOffsets(){
   sectionOffsets = [];
@@ -43,7 +44,6 @@ function showPosition(i) {
     $('.active').removeClass('active');
     return;
   }
-  hello_arrow.innerText = ' ';
   $("#navbar").show();
   $('.active').removeClass('active');
   $(nav_items[i]).addClass('active');
@@ -67,10 +67,14 @@ function scrollNavbar(){
 }
 
 function goToSection(section_id){
-  if (sectNum[section_id] != null) {
-    window.scrollTo(0, sectionOffsets[sectNum[section_id] - 1].offset);
-    $('.navbar-collapse').collapse('hide');
+  if (sectNum[section_id] == null) {
+    return;
   }
+  let time = Math.abs(sectionOffsets[sectNum[section_id]].offset - sectionOffsets[sectNum[current_section]].offset)
+  time = Math.min(time/2, 1000)
+  let location = sectionOffsets[sectNum[section_id] - 1].offset;
+  $('html, body').animate({scrollTop: location}, time,
+    function(){window.scrollTo(0, location);});
 }
 
 function typeChar(i) {
@@ -88,14 +92,6 @@ function typeHello() {
   time += rate;
   setTimeout(function(){hello_h1.innerHTML = hello_msg_html;}, time);
   time *= 2;
-  setTimeout(function(){hello_arrow.innerHTML = hello_arrow_html;}, time);
-}
-
-function directLink() {
-  if (query == null || query =="") {
-    return;
-  }
-  goToSection(query);
 }
 
 function copyToClipboard(str) {
@@ -109,34 +105,23 @@ function copyToClipboard(str) {
 }
 
 function share(){
-  let share_link = url.split('?',2)[0];
+  let share_link = url;
   if (current_section != 'hello') {
-    share_link += '?' + current_section;
+    share_link += current_section;
   }
   copyToClipboard(share_link);
   $("#modal_link")[0].innerText = share_link;
   $("#modal_link")[0].href = share_link;
 }
 
-function projectSlide(prev=false) {
-  $(projects).hide();
-  $(git_title).hide();
-  $(git_cards).hide();
-  if (prev) {
-    current_project = (current_project + projects.length - 1) % projects.length;
-  } else {
-    current_project = (current_project + 1) % projects.length;
-  }
-  if (current_project == 2) {
-    $(git_title).show();
-    $(git_cards).show();
-  }
-  $(projects[current_project]).show();
-}
-
 function hideContact(){
   $('#contact_container').hide();
   $('#contact_thx').show();
+}
+
+function toggleIcon() {
+  $('#nav_icon').toggleClass('fa-ellipsis-v');
+  $('#nav_icon').toggleClass('fa-times');
 }
 
 function sendForm(){
@@ -155,12 +140,38 @@ function sendForm(){
   return false;
 }
 
-window.onscroll = function() {scrollNavbar()};
-$( document ).ready(function() {
-  if (query == null || query =="") {
-    typeHello();
+$('.project_div').hover(
+  function() {
+    $($( this ).find('.project_info')).animate({opacity: 1}, 400);
+  }, function() {
+    $($( this ).find('.project_info')).animate({opacity: 0}, 200);
   }
-  projectSlide();
-  getSectionsOffsets();
-  directLink();
+);
+
+function projectSlide(prev=false) {
+  $(projects[current_project]).removeClass('selected')
+  if (prev) {
+    current_project = (current_project + projects.length - 1) % projects.length;
+  } else {
+    current_project = (current_project + 1) % projects.length;
+  }
+  $(projects[current_project]).addClass('selected')
+}
+
+$('.navbar-collapse .nav-link').on('click', function(){
+    $('.navbar-collapse').collapse('hide');
 });
+
+window.onscroll = function() {scrollNavbar()};
+
+function main() {
+  typeHello();
+  getSectionsOffsets();
+  if (loc != 'hello') {
+    goToSection(loc)
+  }
+  setTimeout(function(){
+    $('#hello_arrow').css('animation-name', 'blink')}, 2000);
+}
+
+$( document ).ready(function() { main() });

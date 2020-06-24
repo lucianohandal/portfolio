@@ -23,6 +23,7 @@ a {
 }
 
 h1 {
+  font-size: 6rem;
   color: #32e0c4;
 }
 
@@ -33,6 +34,7 @@ h1 {
 
 #main_div {
   height: 70vh;
+  max-width: 34rem;
 }
 
 #main_div a {

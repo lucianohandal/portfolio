@@ -40,31 +40,36 @@ h1 {
   background:  #393e46;
 }
 
-#hello h1 {
-    margin-top: 15%;
-    color: #eeeeee;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 5rem;
-}
-
 #new_line {
   color: #32e0c4;
 }
 
+#hello_world {
+  color: #eeeeee;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 5rem;
+  position: absolute;
+  top: 45vh;
+  width: 100%;
+}
+
 #hello_arrow {
-  margin-top: 15%;
-  animation-duration: 400ms;
-  animation-name: blink;
+  position: absolute;
+  opacity: 0;
+  top: 75vh;
+  width: 100%;
+  animation-duration: 800ms;
+  /* animation-name: blink; */
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
 @keyframes blink {
   from {
-     opacity: .5;
+     opacity: 0;
   }
   to {
-     opacity: 0;
+     opacity: .5;
   }
 }
 
@@ -78,65 +83,119 @@ h1 {
   color: #32e0c4;
 }
 
-@media (max-width: 576px) {
-  #home h1, #hello h1 {
-    font-size: 4rem;
-  }
-  h3 {
-    font-size: 1.3rem;
-  }
-  .section {
-    padding-top: 3.5rem;
-  }
-  .git_card img{
-    display: none;
-  }
-}
 
-@media (min-width: 576px) {
-  #about hr{
-    width: 95%;
-    margin-left: 0;
-  }
-}
 
 #exp_edu_row, #skills_row{
   width: 100%;
 }
 
-.row {
-  padding: 15px 45px;
+
+
+#project_btn{
+  position: absolute;
+  width: 95vw;
 }
 
-.carousel_btn{
-  height: 100%;
+#project_btn button:not(:disabled):not(.disabled).active,
+#project_btn button:not(:disabled):not(.disabled):active,
+.show>#project_btn button.dropdown-toggle,
+#project_btn button:focus,
+#project_btn button:active,
+#project_btn button:hover,
+#project_btn button{
+  color: #eeeeee;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar-toggler:not(:disabled):not(.disabled).active,
+.navbar-toggler:not(:disabled):not(.disabled):active,
+.show>.navbar-toggler.dropdown-toggle,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler:hover,
+.navbar-toggler{
+  color: #eeeeee;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+  box-shadow: none;
+}
+
+#projects_title{
+  height: 15vh;
+  width: 100vw;
+}
+
+#projects_container{
+  height: 80vh;
+  width: 100vw;
+}
+
+#projects_container .row{
   width: 100%;
-  font-size: 2rem;
-  color: rgba(238, 238, 238, 0.5);
-}
-.carousel_btn:focus,
-.carousel_btn:hover{
-  background-color: rgba(238, 238, 238, 0.3);
-  color: rgba(0, 0, 0, 0.3);
 }
 
-.card{
-  background-color: rgba(238, 238, 238, 0.2);
+.project_div {
+  padding: 1rem;
+  max-width: 85%;
+  margin: auto;
+  font-size: 120%;
 }
 
-.git_card {
-  width: 18rem;
+.project {
+  border-radius: .5rem;
+  height: 18vw;
+  min-height: 14rem;
+  /* filter: blur(8px); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#seispuntos .project {
+  background-image: url("projects/seispuntos.jpg");
+}
+#easya .project {
+  background-image: url("projects/easya.jpg");
+}
+#arsandbox .project {
+  background-image: url("projects/arsandbox.jpg");
+}
+#msrona .project {
+  background-image: url("projects/msrona.png");
+}
+#msrona .project_info {
+  border-radius: 3rem 3rem .5rem .5rem;
 }
 
-#projects .project_btn{
-  border-color: #32e0c4;
-  color: #32e0c4;
+#tinderbot .project {
+  background-image: url("projects/tinderbot.jpg");
+}
+#portfolio .project {
+  background-image: url("projects/portfolio.jpg");
 }
 
-#projects .project_btn:focus,
-#projects .project_btn:hover{
-  background-color: #32e0c4;
-  color: rgba(0, 0, 0, 0.3);
+.project_info {
+  opacity: 0;
+  border-radius: .5rem;
+  height: 18vw;
+  min-height: 14rem;
+  background-color: rgba(0,0,0,0.8);
+  position: absolute;
+  width: calc(100% - 2rem)
+}
+
+.project_div p{
+  font-weight: bold;
+}
+
+.project_div .png_img {
+  width: 100%;
+  max-height: 200%;
+}
+
+#contact_container {
+  max-width: 50rem;
 }
 
 #contact input,
@@ -156,4 +215,33 @@ h1 {
 
 .modal-footer button {
   width: 80%;
+}
+
+@media (max-width: 576px) {
+  #home h1, #hello h1 {
+    font-size: 4rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  .section {
+    padding-top: 3.5rem;
+  }
+  .git_card img{
+    display: none;
+  }
+  .project_div:not(.selected){
+    display: none!important;
+  }
+}
+
+@media (min-width: 576px) {
+  #about a{
+    font-size: 1.5rem;
+  }
+
+  #about hr{
+    width: 95%;
+    margin-left: 0;
+  }
 }

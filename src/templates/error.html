@@ -25,16 +25,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/?home">Home</a>
+          <a class="nav-link" href="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/?about">About</a>
+          <a class="nav-link" href="/about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/?projects">Projects</a>
+          <a class="nav-link" href="/projects">Projects</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/?contact">Contact</a>
+          <a class="nav-link" href="/contact">Contact</a>
         </li>
       </ul>
     </div>
@@ -42,10 +42,10 @@
 
   <div id="main_div" class="d-flex justify-content-center align-items-center container">
     <div class="">
-      <h1 class="text-center">Error {{error['code']}}</h1>
-      <h2 class="text-center">{{error['name']}}</h2>
+      <h1 class="text-center m-0">{{error['code']}}</h1>
+      <h2 class="text-center mb-4">{{error['name']}}</h2>
       <p class="text-justify">{{error['description']}}</p>
-      <p class="text-right"><a href="{{ url_for('home') }}"> Go Back</a></p>
+      <p class="text-right"><a href="{{ url_for('index') }}"> Go Back</a></p>
 
     </div>
   </div>
