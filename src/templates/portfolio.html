@@ -15,6 +15,13 @@
   <script src="https://kit.fontawesome.com/6b9101bbf3.js" crossorigin="anonymous"></script>
 
   <title>Luciano Handal</title>
+  <!-- <meta name="description" content="Aspiring Computer Scientist"> -->
+  <meta property="og:title" content="Luciano Handal" />
+  <meta property="og:url" content="https://www.lucianohandal.com/" />
+  <!-- <meta property="og:description" content="Aspiring Computer Scientist"> -->
+  <meta property="og:image" content="{{ url_for('static', filename='projects/portfolio.jpg') }}">
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
 </head>
 <body onresize="getSectionsOffsets()">
   <nav id="navbar" class="navbar navbar-expand-sm fixed-top navbar-dark">
@@ -47,104 +54,121 @@
   </div>
   <div id="home" class="d-flex flex-column align-items-center justify-content-center section">
     <h1 class="text-center">I am <span>Luciano</span>,</h1>
-    <h3 class="text-center">Computer Science student and International Ambassador<br>at Purdue University.</h3>
+    <h3 class="text-center px-2">Computer Science student and <br class="d-lg-none">International Ambassador<br>at Purdue University.</h3>
   </div>
   <div id="about" class="section">
-    <div class="container d-flex flex-column align-items-center justify-content-center py-3">
-      <div class="row p-0">
-        <div class="col-12 col-md-6">
-          <h1>About Me</h1>
+    <div class="container section_title">
+      <h1>About Me</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-8">
+          <h5 class="text-center text-md-left">
+            I am a self-starter student with strong technical background,
+            analytical skills and the ability to learn quickly. My skills are
+            in constant inmprovement inside and outside the classroom.
+            <br><br>
+            I am passionate people-first developer, which is refelected in
+            both my backend and frontend code. I aspire to build nice-looking
+            code while creating a pixel-perfect user experience.x
+          </h5>
         </div>
-        <div class="col-12 col-md-6">
-          <div class="d-flex justify-content-around w-100 mt-md-3">
-            <a class="text--center" href="{{ url_for('static', filename='docs/resume.pdf') }}" target="_blank">Resume <i class="fas fa-file"></i></a>
-            <a class="text-center" href="http://www.linkedin.com/in/lhandal98/" target="_blank">LinkedIn <i class="fab fa-linkedin"></i></a>
-            <a class="text-center" href="https://github.com/lhandalb/" target="_blank">GitHub <i class="fab fa-github"></i></a>
+        <div class="col-12 col-sm-4 col-lg-3">
+          <div class="d-none d-sm-flex flex-column justify-content-around w-100 h-100">
+            <a class="text-right" href="{{ url_for('static', filename='docs/resume.pdf') }}" target="_blank">Resume <i class="fas fa-file"></i></a>
+            <a class="text-right" href="http://www.linkedin.com/in/lhandal98/" target="_blank">LinkedIn <i class="fab fa-linkedin"></i></a>
+            <a class="text-right" href="https://github.com/lhandalb/" target="_blank">GitHub <i class="fab fa-github"></i></a>
           </div>
         </div>
-        <div class="col-12">
-          <p>
-            Self-starter student with strong technical background, analytical
-            skills and the ability to learn quickly. Team player constantly
-            learning from others and improving my leadership and communication
-            skills.
-          </p>
+      </div>
+      <div class="">
+        <div class="d-flex mt-3 justify-content-start">
+          <button id="tab_edu" class="btn tab" type="button" onclick="selectTab('edu')">
+            Education
+          </button>
+          <button id="tab_exp" class="btn tab" type="button" onclick="selectTab('exp')">
+            Experience
+          </button>
+          <button id="tab_skl" class="btn tab active_tab" type="button" onclick="selectTab('skl')">
+            Skills
+          </button>
         </div>
       </div>
-      <div id="exp_edu_row" class="row p-0 m-0 mx-md-3">
-        <div class="col-12 col-md-6 p-0">
-          <h2 class="text-center text-md-left">Education</h2>
-          <hr>
-          <h4>Purdue University</h4>
-          <small>2017 – 2021, West Lafayette, IN</small>
-          <p>
-            <span>BS:</span> Computer Science<br>
-            <span>Minor:</span> Mathematics<br>
-            <span>GPA:</span> GPA: 3.72
-          </p>
-          <h4>Semester At Sea</h4>
-          <small>2019</small>
-          <p>Multi-country study abroad program</p>
+      <div class="">
+        <div class="about_collapse collapse w-100" id="collapse_edu">
+          <div class="card card-body">
+            <h6>Purdue University</h6>
+            <small>2017 – 2021, West Lafayette, IN</small>
+            <p>
+              <span>BS:</span> Computer Science<br>
+              <span>Minor:</span> Mathematics<br>
+              <span>GPA:</span> 3.73
+            </p>
+            <h6>Semester At Sea</h6>
+            <small>2019</small>
+            <p>Multi-country study abroad program</p>
+          </div>
         </div>
-        <div class="col-12 col-md-6 p-0 my-5 m-md-0">
-          <h2 class="text-center text-md-left">Experience</h2>
-          <hr>
-          <h4>Goldman Sachs</h4>
-          <small>2020, New York, NY (Remote Program)</small>
-          <p>Incoming Summer Analyst Intern within the Consumer and Investment Management Division </p>
-          <h4>Purdue University</h4>
-          <small>2019, West Lafayette, IN</small>
-          <p>Teaching Assistant</p>
-          <h4>Artexacta SRL.</h4>
-          <small>2018, La Paz, Bolivia</small>
-          <p>User Experience Design Intern</p>
-          <h4>Livent SRL.</h4>
-          <small>2017, La Paz, Bolivia</small>
-          <p>Graphic Designer</p>
+        <div class="about_collapse collapse w-100" id="collapse_exp">
+          <div class="card card-body">
+            <h6>Goldman Sachs</h6>
+            <small>2020, New York, NY (Remote Program)</small>
+            <p>Incoming Summer Analyst Intern within the Consumer and Investment Management Division</p>
+            <h6>Purdue University</h6>
+            <small>2019, West Lafayette, IN</small>
+            <p>Teaching Assistant</p>
+            <h6>Artexacta SRL.</h6>
+            <small>2018, La Paz, Bolivia</small>
+            <p>User Experience Design Intern</p>
+            <h6>Livent SRL.</h6>
+            <small>2017, La Paz, Bolivia</small>
+            <p>Graphic Designer</p>
+          </div>
+        </div>
+        <div class="about_collapse collapse show w-100" id="collapse_skl">
+          <div class="card card-body">
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <h5><span>Software</span></h5>
+                <p class="mb-0">
+                  <span>C</span>, <span>C++</span>, <span>Java</span>, <span>JavaScript</span> and <span>Python</span> programming languages<br>
+                  <span>HTML</span> markup language and <span>CSS</span> style sheet language<br>
+                  <span>SQL</span> database management language<br>
+                  <span>x86</span> assembly language<br>
+                  User experience, user interphase and graphic design
+                </p>
+                <p class="ml-3">Experience working with <span>Adobe XD</span>, <span>Illustrator</span> and <span>Photoshop</span></p>
+              </div>
+              <div class="col-12 col-sm-6">
+                <h5><span>Languages</span></h5>
+                <p>
+                  <span>Spanish</span> native speaker<br><br>
+                  <span>German</span> Proficient. Attended to a german high school and achieved B2 level on the Sprachdiplom II
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="skills_row" class="row p-0 m-0 mb-5 mx-md-3">
-        <div class="col-12 p-0">
-          <h2 class="text-center text-md-left">Skills</h2>
-          <hr>
-        </div>
-        <div class="col-12 col-md-6 p-0">
-          <h4>Software</h4>
-          <p class="mb-0">
-            <span>C</span>, <span>C++</span>, <span>Java</span>, <span>JavaScript</span> and <span>Python</span> programming languages<br><br>
-            <span>HTML</span> markup language and <span>CSS</span> style sheet language<br><br>
-            <span>SQL</span> database management language<br><br>
-            <span>x86</span> assembly language<br>
-            User experience, user interphase and graphic design
-          </p>
-          <p class="m-0 mb-3 mb-md-0 ml-3">Experience working with <span>Adobe XD</span>, <span>Illustrator</span> and <span>Photoshop</span></p>
-        </div>
-        <div class="col-12 col-md-6 p-0">
-          <h4 class="m-md-0 mt-3">Languages</h4>
-          <p>
-            <span>Spanish</span> native speaker<br><br>
-            <span>German</span> Proficient. Attended to a german high school and achieved B2 level on the Sprachdiplom II
-          </p>
-        </div>
+      <div class="d-flex d-sm-none justify-content-around my-5 w-100 h-100">
+        <a class="text-center" href="{{ url_for('static', filename='docs/resume.pdf') }}" target="_blank">Resume <i class="fas fa-file"></i></a>
+        <a class="text-center" href="http://www.linkedin.com/in/lhandal98/" target="_blank">LinkedIn <i class="fab fa-linkedin"></i></a>
+        <a class="text-center" href="https://github.com/lhandalb/" target="_blank">GitHub <i class="fab fa-github"></i></a>
       </div>
     </div>
 
   </div>
   <div id="projects" class="section ">
 
-
-    <div id="projects_title" class="container d-flex flex-column justify-content-end">
-      <h1>Projects</h1>
-    </div>
-
-    <div id="projects_container" class="container d-flex justify-content-center align-items-center">
+    <div id="projects_container" class="d-flex flex-column justify-content-center justify-content-around align-items-center">
       <div id="project_btn" class="d-flex justify-content-between d-sm-none">
         <button type="button" class="btn-outline-light border-0" onclick="projectSlide(true)"><i class="fas fa-chevron-left"></i></button>
         <button type="button" class="btn-outline-light border-0" onclick="projectSlide()"><i class="fas fa-chevron-right"></i></button>
       </div>
-      <div class="row">
+      <h1 class="pl-4 w-100">Projects</h1>
+      <div class="row pb-md-4">
         <div id="seispuntos" class="project_div col-12 col-sm-6 col-lg-4 selected">
-          <div class="project_info d-flex flex-column justify-content-center align-items-center">
+          <div class="project_info d-flex flex-column justify-content-center  align-items-center">
             <p class="text-center m-0 p-0">Seis Puntos</p>
             <small class="text-center p-3">
               Landing page for a custom software development startup
@@ -153,7 +177,7 @@
           </div>
           <div class="project d-flex justify-content-center">
           </div>
-          <div class="d-flex flex-column justify-content-center d-sm-none">
+          <div class="d-flex flex-column justify-content-between d-sm-none phone_info">
             <p class="text-center">Seis Puntos</p>
             <small>
               Landing page for a custom software development startup
@@ -165,17 +189,17 @@
           <div class="project_info d-flex flex-column justify-content-center  align-items-center">
             <p class="text-center m-0 p-0">easyA</p>
             <small class="text-center p-3">
-              Review site which allows Purdue courses.
+              Review site for Purdue University courses.
             </small>
             <a class="btn btn-outline-light text-center" href="https://www.easya.app" target="_blank">Check It Out</a>
           </div>
           <div class="project d-flex justify-content-center">
             <!-- <img src="{{ url_for('static', filename='projects/easya.jpg') }}" alt="easyA"> -->
           </div>
-          <div class="d-flex flex-column justify-content-center d-sm-none">
+          <div class="d-flex flex-column justify-content-between d-sm-none phone_info">
             <p class="text-center">easyA</p>
             <small class="text-center">
-              Review site which allows Purdue courses.
+              Review site for Purdue University courses.
             </small>
             <a class="text-center"  href="https://www.easya.app" target="_blank">Check It Out</a>
           </div>
@@ -191,7 +215,7 @@
           <div class="project d-flex justify-content-center">
             <!-- <img src="{{ url_for('static', filename='projects/arsandbox.jpg') }}" alt="AR Sandbox"> -->
           </div>
-          <div class="d-flex flex-column justify-content-center d-sm-none">
+          <div class="d-flex flex-column justify-content-between d-sm-none phone_info">
             <p class="text-center">AR Sandbox</p>
             <small>
               Augmented Reality (AR) Sandbox crafted for Camp Riley.
@@ -210,7 +234,7 @@
           <div class="project">
             <!-- <img class="png_img" src="{{ url_for('static', filename='projects/msrona.png') }}" alt="Ms Rona"> -->
           </div>
-          <div class="d-flex flex-column justify-content-center d-sm-none">
+          <div class="d-flex flex-column justify-content-between d-sm-none phone_info">
             <p class="text-center">Ms Rona</p>
             <small>
               WhatsApp bot that sends current information of the COVID-19 pandemic.
@@ -230,7 +254,7 @@
           <div class="project d-flex justify-content-center">
             <!-- <img src="{{ url_for('static', filename='projects/tinderbot.jpg') }}" alt="Tinder Bot"> -->
           </div>
-          <div class="d-flex flex-column justify-content-center d-sm-none">
+          <div class="d-flex flex-column justify-content-between d-sm-none phone_info">
             <p class="text-center">Tinder Bot</p>
             <small>
               Tinder bot that logs in into an account and 'likes' all profiles
@@ -248,7 +272,7 @@
           <div class="project d-flex justify-content-center">
             <!-- <img src="{{ url_for('static', filename='projects/portfolio.jpg') }}" alt="Portfolio"> -->
           </div>
-          <div class="d-flex flex-column justify-content-center d-sm-none">
+          <div class="d-flex flex-column justify-content-between d-sm-none phone_info">
             <p class="text-center">This</p>
             <small>Minimalistic open-source portfolio</small>
             <a class="text-center" href="https://github.com/lhandalb/portfolio" target="_blank">Go To Repository</a>

@@ -19,7 +19,10 @@ mail_settings = {
 app.config.update(mail_settings)
 mail = Mail(app)
 
-app.secret_key = os.urandom(16)
+app.config.from_mapping(
+        SECRET_KEY = os.environ.get('SECRET_KEY') or 'dev_key'
+    )
+
 
 @app.route("/", methods=['POST', 'GET'])
 def index():

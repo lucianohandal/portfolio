@@ -148,6 +148,19 @@ $('.project_div').hover(
   }
 );
 
+function selectTab(id){
+  let tab_id = '#tab_' + id;
+  let collapse_id = '#collapse_' + id;
+  if ($(tab_id).hasClass('active_tab')) {
+    return;
+  }
+  $('.active_tab').removeClass('active_tab');
+  $(tab_id).addClass('active_tab');
+  $('.about_collapse').collapse('hide');
+  $(collapse_id).collapse('show');
+
+}
+
 function projectSlide(prev=false) {
   $(projects[current_project]).removeClass('selected')
   if (prev) {
@@ -162,13 +175,14 @@ $('.navbar-collapse .nav-link').on('click', function(){
     $('.navbar-collapse').collapse('hide');
 });
 
+
 window.onscroll = function() {scrollNavbar()};
 
 function main() {
   typeHello();
   getSectionsOffsets();
   if (loc != 'hello') {
-    goToSection(loc)
+    goToSection(loc);
   }
   setTimeout(function(){
     $('#hello_arrow').css('animation-name', 'blink')}, 2000);
